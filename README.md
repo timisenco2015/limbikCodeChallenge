@@ -4,27 +4,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
-A simple web page that fectches list of all celebrities from the database and display them to users using pagination. Users are allow to search by Firstname, Lastname and profession. The images for the celebrities are stored on AWS S3Bucket. It also implemented caching using rxjs mehthods. It is a well tested web application.
+A restful api built with NodeJS. The api gets all celebrities list from the database and sent the data to the web application (imbikCodeChallengeFrontEnd). It uses sequelize for the ORM. The database use for this api is MySQL and it is hosted on AWS RDS.It stores celebrities pictures on AWS S3Bucket. It is a well tested (unit and integration) application.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `node server` for a dev server. To able to use this applications, users will have to set environment variables.The environment file is not on github. Contact me for more information
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via [Mocha](https://github.com/mochajs/mocha).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Build Code Structure
 ```bash
@@ -32,48 +23,39 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
   |
   | -- app 
   |
-    | -- celebrity
-    | 
-      | -- celebrity.component.css
+    | -- config
+    |
+      | -- databaseAuth
+    |
+    | -- data
+    |
+      | -- celebrity
       |
-      | -- celebrity.component.html
-      |
-      | -- celebrity.component
+      | --  S3BucketObject
     |
     | -- entity
     |
       | -- celebrity
+    |
+    | -- model
+    |
+      | -- celebrityModel
+      |
+      | -- sequelizeMockForTesting
+    |
+    | -- repo
+    |
+      | -- celebrityRepo
+    |
+    | -- routes
+    |
+      | -- api
+      |
+        | -- celebrityRoute
       |
     |
-    | -- service
-    |
-      | -- apiService
-      |
-      | -- celebrity.Service
-    |  
-    | -- test
-    |
-      |-- celebrityTest
-      |
-        |-- celebrityComponent.spec.ts
-        |
-        | -- mockCelebrityService
-      |
-      | -- entityTest 
-      |
-        | --  celebrityTest.spec.ts
-      |
-      | -- serviceTest
-      |
-        |-- apiServiceTest.spec.ts
-        |
-        | -- celebrityServiceTest.spec.ts
-        |
-        | -- inMemCelebrityMockService.ts
-        |
-        | -- mockAPIService
-      |
-    |
+  | -- test  
+  
   ```
 
 ## Code details
