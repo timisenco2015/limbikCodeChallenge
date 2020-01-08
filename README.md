@@ -73,46 +73,57 @@ Run `npm test` to execute the unit tests via [Mocha](https://github.com/mochajs/
 
 ## Code details
 ```bash
-  - apiService (service folder): has a method called getAllCelebrities() with parameter. This method calls http get method. API Url is passed to the http get method from app.config.ts using @Inject(). http get method fecthes data from the server and return an Observable
+  - databaseAuth (config folder): configure and setup sequelize and mysql
   
   
-  - CelebrityService (service folder) 
+  - celebrity (data): json folder that contains all the list of 90 celebrities. The file contains firstname, lastname, and profession
+  
+  
+  - S3BucketObject: setup connections to aws S3. using aws-sdk for nodejs. 
+  
+    -- methods:
+    
+          --- getImage: this method accepts key (e.g. george-bush.jpg) as argument and returns image bytes from s3Object
+          
+          
+  - celebrity (entity): the Celebrity class
+  
+    -- methods: setId(id), getId(), setFirstName(firstName), getFirstName(), setLastName(lastName), getLastName(), setProfession(profession), getProfession(), setProfile(profile), getProfile()
+  
+  
+  - celebrityService (service folder) 
   
       -- methods are:
       
-          -- getCelebrities(): this method get all celebrities from the databse by calling  getAllCelebrities in API Service. It returns Observable
+  - celebrityModel (model): this celebrity Sequelize model that will persisted to the mysql data.  
+  
+  
+  - sequelizeMockForTesting (model): mock sequelize for testing celebrityRepo
+  
+  
+  - celebrityRepo
+      
+      -- methods:
+      
+          --- populateTable(): reads data from json file (celebrity.json in data folder) and stores data in the database
           
-          -- filterByFirstName(): filters celebrities list using firstname. It accepts firstname as parameter
+          --- readData(): populateTable() calls this method to read data from file
           
-          -- filterByLastName(): filters celebrities list using lastname. It accepts lastname as parameter
-          
-          -- filterByProfession(): filters celebrities list using profession. It accepts profession as parameter
-   
-   - ApiService  (service folder)
-   
-        -- getCelebrities(): this method get all celebrities from the databse by calling http get. It returns Observable
+          --- getAllList(): accepts res and req as arguments. It read all celebrities from the database and send result               to the router using res
+  
+  
+  - routes
+  
+    -- api
+    
+      --- celebrityRoute
+      
+        ---- router.get: when user enters url. NodeJS accept the url and call this method which gets result from the database. sends result to user
         
+    
+    
+      
         
-  - celebrity (entity folder): is the celebrity class
-  
-      -- methods are: setId(id:number), getId(), setFirstName(firstName:string), getFirstName(), setLastName(lastName:string), getLastName(), setProfession(profession:string),  getProfession(), setProfile(profile:any), getProfile()
-  
-  - component (celebrity): View and Controll of the angular application
-    
-    - celebrity.component.ts file: controller of the angular web applications. fecthes data from database Celebrity Service class, process the data and sent needed data to the view for display
-    
-    - celebrity.component.html: the view
-    
-    - celebrity.component.css: css file
-  
-  - Test Files
-    
-    - celebrityTest
-    
-    - entityTest
-    
-    - serviceTest
-    
     Well written test files using Jasmine and Karma
     
       
