@@ -54,8 +54,21 @@ Run `npm test` to execute the unit tests via [Mocha](https://github.com/mochajs/
         | -- celebrityRoute
       |
     |
-  | -- test  
-  
+  | -- test 
+  |
+    | -- celebrityRepoTest
+    |
+    | -- celebrityRouteTest
+    |
+    | -- celebrityTest
+    | 
+    | -- databaseAuthTest
+    |
+    | -- IntegrationTest
+    |
+    | -- s3BucketObjectTest
+  |
+|
   ```
 
 ## Code details
