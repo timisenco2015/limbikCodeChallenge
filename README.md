@@ -119,12 +119,23 @@ Run `npm test` to execute the unit tests via [Mocha](https://github.com/mochajs/
       --- celebrityRoute
       
         ---- router.get: when user enters url. NodeJS accept the url and call this method which gets result from the database. sends result to user
-        
+  
+  
+  - celebrityRepoTest
+  
+  - celebrityRouteTest
+  
+  - celebrityTest
+  
+  - databaseAuthTest
+  
+  - IntegrationTest
+  
+   - s3BucketObjectTest     
+         
+    Well written test files using Mocha, chai, sinon, spy, assert
     
-    
-      
-        
-    Well written test files using Jasmine and Karma
+ - It uses flat-cache for caching
     
       
       
