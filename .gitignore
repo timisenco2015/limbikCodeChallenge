@@ -22,8 +22,14 @@ setup.log
 # Merlin configuring file for Vim and Emacs
 .merlin
 
+# dependencies
+/node_modules
+
 # Dune generated files
 *.install
+
+# Environmet variable
+*.env
 
 # Local OPAM switch
 _opam/
