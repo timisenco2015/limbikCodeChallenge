@@ -33,7 +33,7 @@
     "sinon": "^8.0.4",
     "spy": "^1.0.0",
     "supertest": "^4.0.2",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
